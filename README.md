@@ -2,6 +2,17 @@
 
 ![Mindmap](doc/img/mindmap.png "Quick brainstorming")
 
+## Ideas
+ 
+### Feedback
+* Users can up- and downvote games, data sets or a single datum
+* Users can suggest new data
+
+### Statistics
+* Gather data of how much which player had to drink
+* Give out Awards and achievements
+* User database to gather statistics and show off how big of an alcohol addict you are
+
 ## Concepts
 
 ### Games
@@ -27,16 +38,7 @@ _Different drinking games that you can play_
     * Timers
     * Other bots contacting this game service (Goals during sport events, social media posts, ...)
     * User input from a frontend
-    
-### Feedback
-* Users can up- and downvote games, data sets or a single datum
-* Users can suggest new data
-
-### Statistics
-* Gather data of how much which player had to drink
-* Give out Awards and achievements
-* User database to gather statistics and show off how big of an alcohol addict you are
-
+   
 ## Games
 
 ### Do-This
