@@ -12,7 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/rlipperts/justanotherdrinkinggame",
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_packages(exclude=("test*", "sim*", "doc*", "examples*")),
     classifiers=[
         "Programming Language :: Python :: 3.9",
         "License :: OSI Approved :: GPL-3.0 License",
