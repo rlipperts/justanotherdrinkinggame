@@ -131,3 +131,6 @@ dmypy.json
 ### Emacs ###
 .projectile
 .cache/
+
+### Intellij ###
+.idea/
