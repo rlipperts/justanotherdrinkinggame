@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.2",
     author="Ruben Lipperts, Georg Alberding",
     author_email="",
-    description="Drinking game service focused on usability and extendability",
+    description="Drinking game service focused on usability and extensibility",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/rlipperts/justanotherdrinkinggame",
