@@ -24,7 +24,7 @@ _Different services to dispatch by the game factory (service factory)_
 * 
 
 #### Timer
-_Frequently sends Timer events to the Game connected to it_
+_Frequently sends Timer events to the game connected to it_
 * 
 
 ### Games
@@ -56,7 +56,7 @@ _Different drinking games that you can play_
 ### Do-This
 _Sends out actions to perform by certain users_
 * __Configuration:__ List of users, Action data lists
-* __Input:__ Timerevent (also just a bit)
+* __Input:__ TimerEvent (also just a bit)
 * __Output:__ User, Action
 * Action data is selected from a number of existing datasets
     * Separate module maintains those
