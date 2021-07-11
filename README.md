@@ -15,6 +15,18 @@
 
 ## Concepts
 
+### Game Factory
+_Factory that creates game instances from Configurations_
+* 
+
+### Services
+_Different services to dispatch by the game factory (service factory)_
+* 
+
+#### Timer
+_Frequently sends Timer events to the Game connected to it_
+* 
+
 ### Games
 _Different drinking games that you can play_
 * Basically, they are defined by their interface and their internal functionality that converts input into output
@@ -43,7 +55,7 @@ _Different drinking games that you can play_
 
 ### Do-This
 _Sends out actions to perform by certain users_
-* __Configuration:__ List of users, Action data lists, Time per turn
+* __Configuration:__ List of users, Action data lists
 * __Input:__ Timerevent (also just a bit)
 * __Output:__ User, Action
 * Action data is selected from a number of existing datasets
@@ -51,7 +63,7 @@ _Sends out actions to perform by certain users_
     
 ### Roll-and-Drink
 _Allows users to request a random number of sips to take_
-* __Configuration:__ List of users
+* __Configuration:__ None
 * __Input:__ Request (basically just a bit)
 * __Output:__ Number of Sips
 * Simple proof-of-concept game for those that do not play games for fun (I'm looking at you, fellow League of Legend players!)
