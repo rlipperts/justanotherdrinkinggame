@@ -1,3 +1,6 @@
+import random
+
+
 class UserModel:
 
     users: set['User']
@@ -8,6 +11,9 @@ class UserModel:
     @classmethod
     def from_names(cls, names: list[str]):
         cls({User(name) for name in names})
+
+    def random(self):
+        return random.choice(tuple(self.users))
 
 
 class User:
