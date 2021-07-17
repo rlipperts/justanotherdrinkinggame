@@ -1,7 +1,7 @@
-from jadg.model.logic.game import Game
+from jadg.model.game import Game
 
 
-class DoThis(Game):
+class RollAndDrink(Game):
 
     def __init__(self, communication_service):
         """
@@ -9,13 +9,18 @@ class DoThis(Game):
         Args:
             communication_service: interface to talk to the client with
         """
-        super(DoThis, self).__init__(communication_service)
+        super(RollAndDrink, self).__init__(communication_service)
 
     def setup(self):
         """
         Begin setup of the game and its logic and data.
         """
         pass
+
+    def run(self):
+        """
+        Start the game.
+        """
 
     def handle_event(self):
         """

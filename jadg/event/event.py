@@ -1,4 +1,6 @@
 from abc import ABC
 
 class Event(ABC):
-    pass
+
+    identifier: int
+    content: any

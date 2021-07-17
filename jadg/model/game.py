@@ -1,5 +1,8 @@
 from abc import ABC
 
+from jadg.event.event import Event
+
+
 class Game(ABC):
     """
     Superclass of all games
@@ -19,7 +22,12 @@ class Game(ABC):
         """
         pass
 
-    def handle_event(self):
+    def run(self):
+        """
+        Start the game.
+        """
+
+    def handle_event(self, event: Event):
         """
         Handle an event.
         """
@@ -31,4 +39,14 @@ class Game(ABC):
         """
         pass
 
-    # def send(self, event: ):
+    def send(self, event: Event):
+        """
+        Send an event to the Client asynchronously
+        """
+        self._communication_service.send(event)
+
+    def request(self, event: Event, timeout: int = 0) -> Event:
+        """
+        Request something from the Client and block until there is an answer
+        """
+        return self._communication_service.request(event, timeout)
