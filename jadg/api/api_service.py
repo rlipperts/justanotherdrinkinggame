@@ -1,7 +1,6 @@
 import socket
 from time import sleep
 from threading import Thread
-from jadg.service.service import Service
 
 PORT = 65416
 HOST = '127.0.0.1'

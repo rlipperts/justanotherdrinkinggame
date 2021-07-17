@@ -1,10 +1,8 @@
 import unittest
-from jadg.api import api_server
 from jadg.api import gameCommunication
-from jadg.service.service import Service
-from jadg.api.api_service import ConnectionClientService, ConnectionServerService, Server, Client
+from jadg.api.api_service import Server, Client
 from time import sleep
-import socket
+
 PORT = 65432
 HOST = '127.0.0.1'
 
