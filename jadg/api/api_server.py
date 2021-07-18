@@ -1,7 +1,7 @@
 from flask import Flask
 import os
 
-from jadg.api.gameCommunication import Messenger
+from jadg.api.game_communication import Messenger
 
 def create_app(test_config=None) -> Flask:
     """https://flask.palletsprojects.com/en/2.0.x/tutorial/factory/"""
@@ -22,7 +22,6 @@ def create_app(test_config=None) -> Flask:
 
     @app.route('/helloWorld')
     def helloWorld() -> str:
-        return messsenger.helloWorld()
-
+        return messsenger.hello_world()
 
     return app

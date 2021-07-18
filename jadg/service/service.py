@@ -1,14 +1,14 @@
 import multiprocessing
 from abc import ABC
 
-from jadg.event.event import Event
+from jadg.api.game_communication import Message
 from jadg.model.game import Game
 
 
 class Service(ABC):
     """
     Services are background-running tasks that can send events to the game server.
-    For the simplest example check the Timer class
+    For the simplest example check the Timer class.
     """
 
     _background_action: multiprocessing.Process
@@ -33,8 +33,8 @@ class Service(ABC):
     def async_action(self, game: Game, **kwargs):
         pass
 
-    def notify_game(self, event: Event):
-        self._game.handle_event(event)
+    def notify_game(self, message: Message):
+        self._game.handle_event(message)
 
     def stop(self):
         """
