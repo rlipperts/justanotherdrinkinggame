@@ -5,6 +5,7 @@ class Messenger:
     def hello_world(self) -> str:
         return "Hello World!"
 
+
 class Communication(ABC):
 
     @abstractmethod
@@ -12,5 +13,5 @@ class Communication(ABC):
         pass
 
     @abstractmethod
-    def request(self, event: Event, timeout: int = 0):
+    def request(self, event: Event, timeout: int = 0) -> Event:
         pass
