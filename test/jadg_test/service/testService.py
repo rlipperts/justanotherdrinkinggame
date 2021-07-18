@@ -17,7 +17,11 @@ class TestServices(unittest.TestCase):
 
 
     def test_timer(self):
-        # timer = Timer(self.game, 1)
-        # startTime = time.time()
-        self.game.handle_message("test")
+        timer = Timer(self.game, 2)
+        startTime = time.time()
+        timer.start()
+        time.sleep(3)
+        timer.stop()
         print(self.handle_msg_called_timestamp)
+        print(self.game.handle_message.called)
+        self.assertAlmostEqual(2, self.handle_msg_called_timestamp -startTime)

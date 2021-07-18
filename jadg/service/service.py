@@ -21,6 +21,7 @@ class Service(ABC):
         """
         Begins the service execution
         """
+        self._background_action.start()
 
     def _async_wrapper(self, game: Game, kwargs):
         try:
@@ -34,7 +35,7 @@ class Service(ABC):
         pass
 
     def notify_game(self, message: Message):
-        self._game.handle_event(message)
+        self._game.handle_message(message)
 
     def stop(self):
         """
