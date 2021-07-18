@@ -1,9 +1,8 @@
-from jadg.model.user_model.user_model import UserModel
+from jadg.model.user_model.user_model import User, UserModel
 from jadg.event.game_event import GameEvent
 from jadg.event.event import Event
 from jadg.event.communication import Communication
 from jadg.model.games.do_this.do_this import DoThis
-from jadg.model.game import Game
 import unittest
 
 class CommunicationSpy(Communication):
@@ -26,9 +25,8 @@ class TestGame(unittest.TestCase):
         self.com = CommunicationSpy()
         self.game = DoThis(self.com)
 
-    def test_user_model(self):
-        um = UserModel.from_names(["Karl", "Ulli", "Ute"])
-        self.assertEqual(len(um.users), 3)
+    def test_game(self):
+        pass
 
 if __name__ == '__main__':
     unittest.main()
