@@ -1,3 +1,4 @@
+from jadg.api.game_communication import Message
 from jadg.service.timer import Timer
 import unittest
 import time
@@ -5,18 +6,18 @@ from unittest.mock import MagicMock
 
 class TestServices(unittest.TestCase):
 
-    def mock_side_effect_register_time(self, ):
+    def mock_side_effect_register_time(self, message: Message):
         print("Side effect called")
-        self.handle_event_called_timestamp = time.time()
+        self.handle_msg_called_timestamp = time.time()
 
     def setUp(self) -> None:
-        self.handle_event_called_timestamp = 0
+        self.handle_msg_called_timestamp = 0
         self.game = MagicMock()
-        self.game.handle_event = MagicMock(side_effect=self.mock_side_effect_register_time)
+        self.game.handle_message = MagicMock(side_effect=self.mock_side_effect_register_time)
 
 
     def test_timer(self):
         # timer = Timer(self.game, 1)
         # startTime = time.time()
-        self.game.handle_event("test")
-        print(self.handle_event_called_timestamp)
+        self.game.handle_message("test")
+        print(self.handle_msg_called_timestamp)
