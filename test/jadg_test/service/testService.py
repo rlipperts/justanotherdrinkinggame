@@ -5,7 +5,7 @@ from unittest.mock import MagicMock
 
 class TestServices(unittest.TestCase):
 
-    def mock_side_effect_register_time(self, event):
+    def mock_side_effect_register_time(self, ):
         print("Side effect called")
         self.handle_event_called_timestamp = time.time()
 
