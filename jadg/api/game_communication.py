@@ -10,11 +10,11 @@ class Messenger:
 class Communication(ABC):
 
     @abstractmethod
-    def send(self, event: Event):
+    def send(self, msg: 'Message'):
         pass
 
     @abstractmethod
-    def request(self, event: Event, timeout: int = 0) -> Event:
+    def request(self, msg: 'Message', timeout: int = 0) -> Event:
         pass
 
 class Message(ABC):
