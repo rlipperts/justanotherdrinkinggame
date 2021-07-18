@@ -1,5 +1,5 @@
 import unittest
-from jadg.api import gameCommunication
+from jadg.api import game_communication
 from jadg.api.api_service import Server, Client
 from time import sleep
 
@@ -8,11 +8,12 @@ HOST = '127.0.0.1'
 
 class TestAPIExploration(unittest.TestCase):
     def setUp(self):
-        self.message = gameCommunication.Messenger()
+        self.message = game_communication.Messenger()
 
     def test_get_hello_world(self):
-        self.assertEqual(self.message.helloWorld(), "Hello World!")
+        self.assertEqual(self.message.hello_world(), "Hello World!")
 
+    @unittest.skip("Takes long to execute")
     def test_simple_client_server_com(self):
         clients = []
         server = Server()
