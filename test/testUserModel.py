@@ -9,8 +9,11 @@ class TestGame(unittest.TestCase):
         self.assertEqual(user.sip_counter, 0)
 
     def test_user_model(self):
-        um = UserModel.from_names(["Karl", "Ulli", "Ute"])
+        user_names = ["Karl", "Ulli", "Ute"]
+        um = UserModel.from_names(user_names)
         self.assertEqual(len(um.users), 3)
+        for user in um.users:
+            self.assertTrue(user.name in user_names)
 
 
 if __name__ == '__main__':
