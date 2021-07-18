@@ -1,7 +1,5 @@
 from abc import ABC
-from jadg.api.game_communication import Message
-
-from jadg.event.event import Event
+from jadg.api.game_communication import Message, BaseMessage
 
 
 class Game(ABC):
@@ -28,7 +26,7 @@ class Game(ABC):
         Start the game.
         """
 
-    def handle_event(self, event: Event):
+    def handle_event(self, message: Message):
         """
         Handle an event.
         """
@@ -40,11 +38,13 @@ class Game(ABC):
         """
         pass
 
-    def send(self, message: Message):
-        self._communication_service.send(message)
+    def send(self, text: str):
+        msg = BaseMessage(text)
+        self._communication_service.send(msg)
 
-    def request(self, message: Message, timeout: int = 0) -> Message:
+    def request(self, text: str, timeout: int = 0) -> Message:
         """
         Request something from the Client and block until there is an answer
         """
-        return self._communication_service.request(message, timeout)
+        msg = BaseMessage(text)
+        return self._communication_service.request(msg,  timeout)
