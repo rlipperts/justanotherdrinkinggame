@@ -5,16 +5,18 @@ from unittest.mock import MagicMock
 
 class TestServices(unittest.TestCase):
 
-    def register_time(self, event):
+    def mock_side_effect_register_time(self, event):
         print("Side effect called")
-        self.event_called_time = time.time()
+        self.handle_event_called_timestamp = time.time()
 
     def setUp(self) -> None:
-        self.event_called_time = 0
+        self.handle_event_called_timestamp = 0
         self.game = MagicMock()
-        self.game.handle_event = MagicMock()
+        self.game.handle_event = MagicMock(side_effect=self.mock_side_effect_register_time)
 
 
     def test_timer(self):
-        timer = Timer(self.game, 1)
-        startTime = time.time()
+        # timer = Timer(self.game, 1)
+        # startTime = time.time()
+        self.game.handle_event("test")
+        print(self.handle_event_called_timestamp)

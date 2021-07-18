@@ -1,22 +1,18 @@
-from jadg.model.user_model.user_model import User, UserModel
-from jadg.event.game_event import GameEvent
-from jadg.event.event import Event
-from jadg.event.communication import Communication
+from jadg.api.game_communication import Communication, EmptyMessage, Message
 from jadg.model.games.do_this.do_this import DoThis
 import unittest
 
 class CommunicationSpy(Communication):
     def __init__(self):
-        self.event_send_log: list[Event] = []
-        self.event_request_log: list[Event] = []
+        self.msg_send_log: list[Message] = []
+        self.msg_request_log: list[Message] = []
 
+    def send(self, message: Message):
+        self.msg_send_log.append(message)
 
-    def send(self, event: Event):
-        self.event_send_log.append(event)
-
-    def request(self, event: Event, timeout: int = 0):
-        self.event_request_log.append(event)
-        return GameEvent(set(), "")
+    def request(self, message: Message, timeout: int = 0):
+        self.msg_request_log.append(message)
+        return EmptyMessage()
 
 
 class TestGame(unittest.TestCase):
