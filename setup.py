@@ -12,7 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/rlipperts/justanotherdrinkinggame",
-    packages=setuptools.find_packages(exclude=("test*", "doc*")),
+    packages=setuptools.find_packages(include='jadg', exclude=("test*", "doc*")),
     install_requires = [
         'logging-configurator @ git+ssh://git@github.com/rlipperts/logger.git@master#egg=logging-configurator-0.0.2',
     ],

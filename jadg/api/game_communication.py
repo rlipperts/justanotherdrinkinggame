@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from jadg.event.event import Event
 import uuid
 import json
 
@@ -22,13 +21,37 @@ class Communication(ABC):
         Send request and expect response in json format
         """
 
+
 class Message(ABC):
-    idetifier: int
+    """
+    Data class containing information to be sent between games, services and clients
+    """
+    identifier: int
     content: dict
 
     def __init__(self, content):
-        self.idetifier = int(uuid.uuid4())
+        self.identifier = int(uuid.uuid4())
         self.content = content
 
+
 class BaseMessage(Message):
+    """
+    Default message without bells or whistles.
+    """
+    pass
+
+
+class EmptyMessage(Message):
+    """
+    Message without data.
+    """
+
+    def __init__(self):
+        super(EmptyMessage, self).__init__(None)
+
+class TimerMessage(EmptyMessage):
+    """
+    Specialized Message for timer notifications.
+    """
+    # todo: is this necessary? We could also just create a base message with content 'timer_notification'
     pass
