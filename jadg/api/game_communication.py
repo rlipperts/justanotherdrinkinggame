@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from jadg.event.event import Event
+import uuid
 
 class Messenger:
     def hello_world(self) -> str:
@@ -15,3 +16,13 @@ class Communication(ABC):
     @abstractmethod
     def request(self, event: Event, timeout: int = 0) -> Event:
         pass
+
+class Message(ABC):
+    idetifier: int
+    content: str
+
+    def __init__(self):
+        self.idetifier = int(uuid.uuid4())
+
+class BaseMessage(Message):
+    pass

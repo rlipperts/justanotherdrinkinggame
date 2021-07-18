@@ -1,7 +1,7 @@
 from jadg.model.user_model.user_model import User, UserModel
 import unittest
 
-class TestGame(unittest.TestCase):
+class TestUserModel(unittest.TestCase):
 
     def test_user_creation(self):
         user = User("Bob")
