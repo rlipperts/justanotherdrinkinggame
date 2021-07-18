@@ -12,8 +12,8 @@ class TestUserModel(unittest.TestCase):
         self.assertEqual(user.name, "Bob")
         self.assertEqual(user.sip_counter, 0)
 
-    def test_user_model(self):
-        self.assertEqual(len(self.user_model.users), 3)
+    def test_user_model_creation(self):
+        self.assertEqual(len(self.user_model.users), len(self.user_names))
         for user in self.user_model.users:
             self.assertTrue(user.name in self.user_names)
 
