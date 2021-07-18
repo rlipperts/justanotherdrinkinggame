@@ -9,8 +9,8 @@ class UserModel:
         self.users = users
 
     @classmethod
-    def from_names(cls, names: list[str]):
-        cls({User(name) for name in names})
+    def from_names(cls, names: list[str]) -> 'UserModel':
+        return cls({User(name) for name in names})
 
     def random(self):
         return random.choice(tuple(self.users))
