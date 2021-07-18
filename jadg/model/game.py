@@ -26,7 +26,7 @@ class Game(ABC):
         Start the game.
         """
 
-    def handle_event(self, message: Message):
+    def handle_message(self, message: Message):
         """
         Handle an event.
         """
