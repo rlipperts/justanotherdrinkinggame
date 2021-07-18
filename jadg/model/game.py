@@ -1,4 +1,5 @@
 from abc import ABC
+from jadg.api.game_communication import Message
 
 from jadg.event.event import Event
 
@@ -39,14 +40,11 @@ class Game(ABC):
         """
         pass
 
-    def send(self, event: Event):
-        """
-        Send an event to the Client asynchronously
-        """
-        self._communication_service.send(event)
+    def send(self, message: Message):
+        self._communication_service.send(message)
 
-    def request(self, event: Event, timeout: int = 0) -> Event:
+    def request(self, message: Message, timeout: int = 0) -> Message:
         """
         Request something from the Client and block until there is an answer
         """
-        return self._communication_service.request(event, timeout)
+        return self._communication_service.request(message, timeout)

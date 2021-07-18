@@ -1,3 +1,4 @@
+from jadg.api.game_communication import BaseMessage, Message
 from jadg.event.communication import Communication
 from jadg.event.event import Event
 from jadg.event.game_event import GameEvent
@@ -24,9 +25,16 @@ class DoThis(Game):
         """
         Begin setup of the game and its logic and data.
         """
-        self.user_model = UserModel.from_names(self.request(Communication(int(uuid.uuid4()), 'get_user_list')).content)
+        self.user_model = UserModel.from_names(self.get_user_names())
         timer = Timer(self, 60)
         timer.start()
+
+    def get_user_names(self) -> list[str]:
+        return self.request('get_user_list').content["user_list"]
+
+    def request(self, message: str) -> Message:
+        msg = BaseMessage(message)
+        return super().request(msg)
 
     def handle_event(self, event: Event):
         """
